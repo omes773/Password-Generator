@@ -1,2 +1,5 @@
 # Password-Generator
-Homework #3
+
+# description
+
+- this is a code for a password generator
