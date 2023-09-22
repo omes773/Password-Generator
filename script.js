@@ -1,5 +1,6 @@
 var length = 8;
 var pick = [];
+var passwordString = " "
 
 var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var numbers = ["0","1","2","3","4","5","6","7","8","9"];
@@ -25,24 +26,50 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
-  ;
-}
-
-function userPrompts() {
-pick = [];
-characters = (prompt("How many characters do you want your password to be?"))
-
-if (characters < 8 || characters > 128) {
-  return "The password has to be between 8 and 128 characters.";
-} else if (isNaN(characters)) {
-  characters = prompt("Please enter a valid number.");
-}
-else {
-  alert("Your password will be " + characters + " characters long.");
+    var characters = parseInt(prompt("How many characters would you like in your password?"))
+    console.log(characters)
+    if (characters < 8 || characters > 128) {
+      alert ("Your password must be between 8 and 128 characters.");
+     var characters = parseInt(prompt("Please enter a number between 8 & 128"))
+      
+    }
   
-}
+  if (confirm("Do you want uppercase letters in your password?")){
+  pick.push(upperCase)
+  }
+  
+  if (confirm("Do you want lowercase letters in your password?")){
+    pick.push(lowerCase)
+  }
+  
+  if (confirm("Do you want special characters in your password?")){
+    pick.push(specialCh)
+  }
+  
+  if (confirm("Do you want numbers in your password?")){
+    pick.push(numbers)
+  }
+  
+  else if (pick.length === 0){
+    alert("You must select at least one character type.")
+    return ''
+  }  
 
-
+console.log(characters, pick)
+  
+  
+  for (var i = 0; i < characters; i++){
+    var randomNum = Math.floor(Math.random() * pick.length);
+    var randomCharNum = Math.floor(Math.random() * pick[randomNum].length);
+    var password = pick[randomNum][randomCharNum]
+    passwordString += password
+    console.log(randomNum, randomCharNum, password)
+  }
+  
+  return passwordString
+  
+   }
+ 
 
 
 
