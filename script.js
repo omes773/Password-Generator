@@ -1,4 +1,4 @@
-var lenght = 8;
+var length = 8;
 var pick = [];
 
 var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
@@ -27,6 +27,27 @@ generateBtn.addEventListener("click", writePassword);
 function generatePassword() {
   ;
 }
+
+function userPrompts() {
+pick = [];
+characters = (prompt("How many characters do you want your password to be?"))
+
+if (characters < 8 || characters > 128) {
+  return "The password has to be between 8 and 128 characters.";
+} else if (isNaN(characters)) {
+  characters = prompt("Please enter a valid number.");
+}
+else {
+  alert("Your password will be " + characters + " characters long.");
+  
+}
+
+
+
+
+
+
+
 
 
 //create a function to take in all password criteria
